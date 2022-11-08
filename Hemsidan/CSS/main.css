@@ -23,7 +23,7 @@ body {
 
 a {
     text-decoration: none;
-    color: inherit;
+    color: #e59560;
 }
 
 
@@ -317,7 +317,6 @@ nav {
     flex-direction: row;
     justify-content: space-between;
     align-items: center;
-    padding: 20px;
     gap: 10px;
 
 }
