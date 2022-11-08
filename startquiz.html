@@ -84,6 +84,14 @@ button:hover{
     font-size:24px;
 }
 
+.rightAnswer{
+  background-color: green;
+}
+
+.wrongAnswer{
+  background-color: red;
+}
+
 
 
 </style>
@@ -91,15 +99,18 @@ button:hover{
 <div class="all-content">
     <h6>Finnslättens Väderquiz!</h6>
 
-    <div class="Svar">
-    <div class="Svarsrutor">Hur varmt är det i "vardagsrummet"? <input class="guessInput" type="text"></div>
-    <div class="Svarsrutor">Hur varmt är det utomhus? <input class="guessInput" type="text"></div>
-    <div class="Svarsrutor">Hur varmt är det i pingisrummet? <input class="guessInput" type="text"></div>
-    <div class="Svarsrutor">Hur varmt är det i "terrariet"? <input class="guessInput" type="text"></div>
-    <div class="Svarsrutor">Hur varmt är det vid ytterdörren? <input class="guessInput" type="text"></div>
+    <div id="clear">
+      <div class="Svar">
+      <div class="Svarsrutor">Hur varmt är det i "vardagsrummet"? <input class="guessInput" type="text" maxlength="2"></div>
+      <div class="Svarsrutor">Hur varmt är det utomhus? <input class="guessInput" type="text" maxlength="2"></div>
+      <div class="Svarsrutor">Hur varmt är det i pingisrummet? <input class="guessInput" type="text" maxlength="2"></div>
+      <div class="Svarsrutor">Hur varmt är det i "terrariet"? <input class="guessInput" type="text" maxlength="2"></div>
+      <div class="Svarsrutor">Hur varmt är det vid ytterdörren? <input class="guessInput" type="text" maxlength="2"></div>
 
-    <div>
-        <button onclick="guess()">Skicka in</button>
+      <div>
+          <button id="button" onclick="guess()">Skicka in</button>
+          <div id="guesses"></div>
+      </div>
     </div>
 </div>
 

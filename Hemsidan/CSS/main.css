@@ -23,9 +23,12 @@ body {
 
 a {
     text-decoration: none;
-    color: #e59560;
+    color: #353535;
 }
 
+a:hover {
+    color: #e59560;
+}
 
 
 
@@ -266,7 +269,7 @@ nav {
     font-weight: 600;
     font-size: 3vw; 
     /* identical to box height */
-
+    color: black;
     display: flex;
     align-items: center;
     text-align: center;
@@ -277,6 +280,7 @@ nav {
 
 .kort-text:hover {
     transform: scale(1.05);
+    color: initial;
 }
 .title-and-more {
     display: flex;
@@ -317,6 +321,7 @@ nav {
     flex-direction: row;
     justify-content: space-between;
     align-items: center;
+    padding: 20px;
     gap: 10px;
 
 }
@@ -841,10 +846,10 @@ border-width: 5px;
     border-bottom-color: #e59560;
 }
 
-#usvsthem {
-    border-bottom-style: solid;
-    border-bottom-width: 3px;
-    border-bottom-color: #00008b;
+.usvsthem {
+    border-style: solid;
+    border-width: 3px;
+    border-color: #00008b;
 }
 
 .pad-ew-15 {
@@ -895,4 +900,18 @@ border-width: 5px;
 
 .size18 {
     font-size: 18px;
+}
+
+.instead-graph {
+    display: none;
+}
+
+@media screen and (max-width: 710px) {
+    .hide-graph {
+        display: none
+    }
+    .instead-graph {
+        display: initial;
+    }
+
 }
