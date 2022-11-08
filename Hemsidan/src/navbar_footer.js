@@ -20,12 +20,20 @@ function navbarClicked() {
     if(hamMenu.innerText == "menu") {
         hamMenu.innerText = "menu_open"
         hamContent.style.display = "flex"
+        if(window.scrollY>0) {
+            navbar.classList.remove("add-shadow")
+        }
+   
 
     } else if(hamMenu.innerText == "menu_open") {
         hamMenu.innerText = "menu"
         hamContent.style.display = "none"
+        if(window.scrollY>0) {
+            navbar.classList.add("add-shadow")
+        }
     }
 }
+
 
 function hideNavbar() {
     hamMenu.innerText = "menu"
