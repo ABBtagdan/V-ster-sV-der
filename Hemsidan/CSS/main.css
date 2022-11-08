@@ -913,5 +913,12 @@ border-width: 5px;
     .instead-graph {
         display: initial;
     }
+    #date-box {
+        -webkit-appearance: none;
+        appearance: none
+        ;
+    }
+   
+
 
 }
