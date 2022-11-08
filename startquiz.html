@@ -1,0 +1,110 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <link
+      rel="icon"
+      href="data:image/svg+xml,<svg xmlns=%22http://www.w3.org/2000/svg%22 viewBox=%220 0 100 100%22><text y=%22.9em%22 font-size=%2290%22>🌡</text></svg>"
+    />
+    <link rel="stylesheet" href="Hemsidan/CSS/main.css" />
+    <link rel="preconnect" href="https://fonts.googleapis.com" />
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+    <link
+      href="https://fonts.googleapis.com/css2?family=Libre+Franklin&family=Permanent+Marker&display=swap"
+      rel="stylesheet"
+    />
+    <link
+      href="https://fonts.googleapis.com/css2?family=Lexend:wght@100;200;300;400;500;600;700;800;900&display=swap"
+      rel="stylesheet"
+    />
+
+    <link
+      rel="stylesheet"
+      href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined:opsz,wght,FILL,GRAD@20..48,100..700,0..1,-50..200"
+    />
+    <link
+      rel="stylesheet"
+      href="https://cdn.jsdelivr.net/npm/flatpickr/dist/flatpickr.min.css"
+    />
+    <title>Väderquiz</title>
+</head>
+<body>
+    
+    <body style="background-color:#D7E5F6;"></body>
+
+<style>
+
+    .Svarsrutor{
+        margin:60px;
+        position:relative;
+        bottom:90px;
+        left:250px;
+
+    }
+
+h6{
+    background-color: #345DAB;
+            height: 100px;;
+            width:100%;
+            justify-content: center;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            flex-direction: row;
+            font-size: 32px;
+            color: white;
+            font-family: Arial;
+            border-radius: 20px;
+            position:relative;
+            bottom: 60px;
+}
+     
+
+button{
+    background-color: #345DAB;
+            height: 40px;
+            Width: 180px;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            flex-direction: row;
+            font-size: 20px;
+            color: white;
+            font-family: Arial;
+            border-radius: 20px;
+            position: relative;
+            left:470px;
+            bottom:120px;
+}
+
+button:hover{
+    font-size:24px;
+}
+
+
+
+</style>
+
+<div class="all-content">
+    <h6>Finnslättens Väderquiz!</h6>
+
+    <div class="Svar">
+    <div class="Svarsrutor">Hur varmt är det i "vardagsrummet"? <input class="guessInput" type="text"></div>
+    <div class="Svarsrutor">Hur varmt är det utomhus? <input class="guessInput" type="text"></div>
+    <div class="Svarsrutor">Hur varmt är det i pingisrummet? <input class="guessInput" type="text"></div>
+    <div class="Svarsrutor">Hur varmt är det i "terrariet"? <input class="guessInput" type="text"></div>
+    <div class="Svarsrutor">Hur varmt är det vid ytterdörren? <input class="guessInput" type="text"></div>
+
+    <div>
+        <button onclick="guess()">Skicka in</button>
+    </div>
+</div>
+
+  <script src="https://www.gstatic.com/firebasejs/7.21.1/firebase-app.js"></script>
+  <script src="https://www.gstatic.com/firebasejs/7.21.1/firebase-database.js"></script>
+  <script src="Hemsidan/src/quiz.js"></script>
+  <script src="Hemsidan/src/navbar_footer.js"></script>
+</body>
+</html>

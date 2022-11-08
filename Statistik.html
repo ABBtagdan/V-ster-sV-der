@@ -1,0 +1,130 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <link
+      rel="icon"
+      href="data:image/svg+xml,<svg xmlns=%22http://www.w3.org/2000/svg%22 viewBox=%220 0 100 100%22><text y=%22.9em%22 font-size=%2290%22>🌡</text></svg>"
+    />
+    <link rel="stylesheet" href="Hemsidan/CSS/main.css" />
+    <link rel="preconnect" href="https://fonts.googleapis.com" />
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+    <link
+      href="https://fonts.googleapis.com/css2?family=Libre+Franklin&family=Permanent+Marker&display=swap"
+      rel="stylesheet"
+    />
+    <link
+      href="https://fonts.googleapis.com/css2?family=Lexend:wght@100;200;300;400;500;600;700;800;900&display=swap"
+      rel="stylesheet"
+    />
+
+    <link
+      rel="stylesheet"
+      href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined:opsz,wght,FILL,GRAD@20..48,100..700,0..1,-50..200"
+    />
+    <link
+      rel="stylesheet"
+      href="https://cdn.jsdelivr.net/npm/flatpickr/dist/flatpickr.min.css"
+    />
+    <title>Data och statistik</title>
+  </head>
+  <body class="bg-exp-light font-lexend">
+    <div class="all-content">
+      <div class="bg-exp-light f-ew-space-evenly-center w-100 gap-30 f-wrap-reverse pad-10">
+        <header class="size50 weight-reg upper pad-10 text-center c-black"> 
+          Data och statistik
+        </header>
+      </div>
+      <div class="pad-10 bg-exp-light-blue w-100 f-ew-center-center f-wrap gap-30 pad-1 extra-sticky-nav">
+    
+        <div class="f-ew-space-evenly-center f-wrap gap-10">
+          <select
+          name="room"
+          id="room"
+          class="weight-semiB size20 bg-exp-light-blue pad-10 c-black own-select font-lexend"
+          >
+          <option class="no-text-transform" value="rum1">
+            Vardagsrummet
+          </option>
+          <option class="no-text-transform" value="rum2">Utomhus</option>
+          <option class="no-text-transform" value="rum3">Pingisrummet</option>
+          <option class="no-text-transform" value="rum4">Terrariet</option>
+          <option class="no-text-transform" value="rum5">Ytterdörren</option>
+        </select>
+        <input type="datetime-local" id="date-box" class="size20 font-lexend weight-semiB bg-exp-light-blue c-black" placeholder="Välj datum..."/>
+        </div>  
+      <div class="f-ew-space-evenly-center f-wrap gap-10">
+        <div id="usvsthem" class="weight-semiB c-primary size20 bg-exp-light-blue h-60 pad-10 f-ew-center-center" >
+          <span class="c-black upper " id="våran_temperatur"></span>
+          
+        </div>
+        <div id="usvsthem" class="weight-semiB c-primary size20 bg-exp-light-blue h-60 pad-10 f-ew-center-center" >
+          <span class="c-black" id="SMHI's_temperatur"></span>
+          
+        </div>
+
+      </div>
+      
+      </div>
+      <div class="main-content f-ew-center-start f-wrap gap-30">
+        
+        
+        <div class="gap-30 f-ns-center-center w-50">
+            <div class="upper weight-semiB size25">
+          Karta över spetsen
+        </div>
+          <img
+            class="min-320px w-100"
+            src="Hemsidan/Assets/spets-map-with-text.gif"
+            alt="Map of sensors"
+          />
+          <div class="size20"><b>Luffuktighet och temperatur</b></div>
+          <div class="w-100 f-ew-space-evenly-center">
+            <div class="w-60 f-ns-space-between-center">
+              <div id="ml-water" class="size18"></div>
+              <div class="water-container f-ew-space-between-center">
+              <div id="water-col"></div>
+            </div>
+            
+             
+          </div>
+          <div class="f-ns-space-between-center ">
+            <div><span id="C-temp"class="size18"> </span> <span class="font-lexend size18">°C</span></div>
+            <div id="temp-box"></div>
+          </div>
+          
+
+          </div>
+          </div>
+          <div class="f-ns-space-between-center f-wrap gap-10">
+          <div id="myChart1" ></div>
+          <div id="myChart2" ></div>
+        </div>
+        </div>
+        
+        
+
+      </div>
+    </div>
+
+    <!-- Importerar bibliotek för firebase, jquery, plotly(för grafer), faltpickr(för datum-väljare) -->
+
+    <script src="https://www.gstatic.com/firebasejs/7.21.1/firebase-app.js"></script>
+
+    <script src="https://www.gstatic.com/firebasejs/7.21.1/firebase-database.js"></script>
+
+    <script src="https://ajax.googleapis.com/ajax/libs/jquery/2.1.1/jquery.min.js"></script>
+
+    <script src="https://cdn.plot.ly/plotly-2.14.0.min.js"></script>
+
+    <script src="https://cdn.jsdelivr.net/npm/flatpickr"></script>
+
+    <!-- Länkar till våran kod -->
+
+    <script src="Hemsidan/src/Data.js"></script>
+
+    <script src="Hemsidan/src/navbar_footer.js"></script>
+  </body>
+</html>
