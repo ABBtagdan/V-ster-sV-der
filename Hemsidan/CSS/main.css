@@ -188,6 +188,12 @@ nav {
     justify-content: center;
 }
 
+		
+.nav-item:hover {
+    color: initial;
+}
+
+
 
 
 
@@ -670,6 +676,20 @@ footer {
     align-items: flex-start;
 }
 
+.own-button {
+    -webkit-appearance: none;
+    appearance: none;
+    font-weight: bold;
+    outline: none;
+    border: 0;
+    cursor: pointer;
+    transition-duration: 0.2s;
+    
+}
+.own-button:hover {
+    transform: scale(1.1);
+}
+
 .gap-10 {
     gap: 10px;
 }
@@ -798,6 +818,7 @@ border-width: 5px;
 
 #date-box {
     height: 60px;
+    width: 320px;
     background-image: url("../Assets/black-drop-down-arrow.svg");
     background-repeat: no-repeat;
     background-position-x: 100%;
