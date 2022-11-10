@@ -25,18 +25,40 @@ for(i = 1; i <= 5; i++){
     })
 }
 
+//Funktion för att ge felmarginal till gissningen och svaret
+function eval_guess(r, g){
+    return (r -0.5 <= g && g <= r+0.5)
+}
+
 //Funktionen för att gissa
 function guess() {
     //Get the guessInput
     let guessInput = document.getElementsByClassName("guessInput");
+    amountOfCorrect = 0;
     //Loopa genom alla inputs med klassen guessInput
     for(let i = 0; i < guessInput.length; i++) {
         //Kolla om svaret är rätt/fel och ändra färgen på inputen
-        if(guessInput[i].value == answers[i]) {
-            guessInput[i].style.backgroundColor = "green";
+        if(eval_guess(answers[i],guessInput[i].value)) {
+            guessInput[i].classList = "guessInput rightAnswer";
+            amountOfCorrect++;
+
         } else {
-            guessInput[i].style.backgroundColor = "red";
+            guessInput[i].classList = "guessInput wrongAnswer";
         }
+    } if (amountOfCorrect == 5) {
+        document.getElementById("clear").innerHTML = "";
+        let winnerText = document.createElement("h1");
+        winnerText.innerHTML = "Grattis! Du har gissat rätt på alla rum!";
+        document.getElementById("clear").appendChild(winnerText);
     }
 }
 
+let guesses = 0;
+document.getElementById("button").addEventListener("click", () => {
+    guesses++;
+    if(guesses == 1){
+        document.getElementById("guesses").innerHTML = `Du har gissat ${guesses} gång!`;
+    } else {
+        document.getElementById("guesses").innerHTML = `Du har gissat ${guesses} gånger!`;
+    }
+})
