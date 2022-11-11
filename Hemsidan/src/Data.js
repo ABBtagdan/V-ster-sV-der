@@ -28,6 +28,8 @@ var date = [new Date().getMonth()*100 + new Date().getDate(), new Date().getMont
 
 var hum = 0;
 var temp = 0;
+var humlisten;
+var templisten;
 
 
 //SMHI
@@ -53,7 +55,7 @@ function calculate_abs_hum(t,h){
     return p*h*2.1674/(273.15+t)
 }
 
-// (lerp och interp är funktioner för att fylla i saknande värden, men dom används inte i den färdiga koden)
+// interp är en funktion för att 
 
   function interp(d) {
 
@@ -68,13 +70,13 @@ function calculate_abs_hum(t,h){
 //funktion för att hämta och visa relatidsvärden från firebase.
 
 function display_realtimes(temp_ref, hum_ref){
-hum_ref.on("value", (snapshot) => {
+humlisten = hum_ref.on("value", (snapshot) => {
     hum = snapshot.val();
     write_hum.innerHTML = `${hum}%`;
     water_col.style.width = `${hum}%`;
 });
 
-temp_ref.on("value", (snapshot) => {
+templisten = temp_ref.on("value", (snapshot) => {
     temp = snapshot.val();
     temp_text.innerHTML = `${temp}`
     temp_box.style.backgroundColor = `rgb(${255*(temp+5)/30}, 100, ${255-(255*(temp+5)/30)})`;
@@ -125,7 +127,6 @@ ref.once('value', (snapshot) => {
         x: x,
         y: Temp,
         type: 'scatter', 
-        line: {shape: "spline"},
         name: "Temperature (C°)",
     }
 
@@ -133,7 +134,6 @@ ref.once('value', (snapshot) => {
         x: x,
         y: Hum,
         type: 'scatter',
-        line: {shape: "spline"},
         name: "Humidity (%)",
     }
 
@@ -142,7 +142,6 @@ ref.once('value', (snapshot) => {
         y: abshum,
         yaxis: "y2",
         type: 'scatter',
-        line: {shape: "spline"},
         name: "Absolute Humidity (ml)"
         }
 
@@ -155,7 +154,9 @@ ref.once('value', (snapshot) => {
             title: {
                 text: "Tid"
             }
-        }
+        },
+        width: '60vw',
+        height: '30vh'
     });
     Plotly.newPlot('myChart2', [trace2, trace3], {
         title: {
@@ -179,7 +180,9 @@ ref.once('value', (snapshot) => {
         
             side: 'right'
         
-          }
+          },
+          width: '60vw',
+          height: '30vh'
     });
 })};
 
@@ -191,22 +194,6 @@ display_realtimes(temp_src, hum_src);
 
 //Väntar på att sidan har laddats och är redo för att modifieras med jquery. (för uppdatering utan reloading)
 
-//Resize graphs on window resize.
-
-
-  
-window.onresize = function(){
-    var update = {
-        width: document.innerWidth / 2,  // or any new width
-        height: document.innerHeight / 3  // " "
-      };
-    chart1.width = update.width;
-    chart2.width = update.width;
-    chart1.height = update.width;
-}
-
-  
-
 $(document).ready(function() {
 
     //Kollar om värdet på inputen room ändras och kör functionen om så är fallet.
@@ -215,7 +202,8 @@ $(document).ready(function() {
 
         //switch statment för att kolla vilket rum vi tittar på och byter ut firebase-pathen därefter (default: Room1).
         //Sedan körs functionerna för grafen och realtidsvärdena igen för med den nya pathen.
-
+        temp_src.off("value", templisten)
+        hum_src.off("value", humlisten)
         switch($(this).val()){
             case "rum1": 
             path = "Room1";
